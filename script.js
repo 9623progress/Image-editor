@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   save.addEventListener("click", () => {
-    console.log(result.src);
+    // console.log(result.src);
     if (result.src && result.src.startsWith("data:image/")) {
       setImage.src = result.src;
     }
@@ -251,8 +251,8 @@ document.addEventListener("DOMContentLoaded", function () {
   ratio.addEventListener("change", (e) => {
     let setRatio = NaN;
     const ratioValue = e.target.value;
-    console.log(ratioValue);
-    console.log("inside ratio");
+    // console.log(ratioValue);
+    // console.log("inside ratio");
     if (ratioValue === "ratio1") {
       setRatio = NaN;
     } else if (ratioValue === "ratio2") {
