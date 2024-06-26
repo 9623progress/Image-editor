@@ -1,0 +1,335 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    background-color: rgb(224, 243, 251);
+}
+
+.heading {
+    font-size: 1.7rem;
+    padding: 0px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(65, 10, 95);
+    margin: 2px;
+}
+
+.main-container {
+    /* height: 100vh; */
+    width: 50%;
+    margin: auto;
+    /* border: 2px solid red; */
+    margin-top: 7%;
+    /* margin-bottom: 5%; */
+    background-color: white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5%;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 1;
+    flex-wrap: wrap;
+
+
+}
+
+.filters {
+    border: 2px solid rgb(184, 180, 180);
+    padding: 2%;
+    cursor: pointer;
+    height: 100%;
+}
+
+.filter-option {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+}
+
+.rotate {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.Option {
+    padding: 2%;
+    color: rgb(8, 8, 8);
+    background-color: white;
+    border: 2px solid rgb(184, 180, 180);
+    border-radius: 5px;
+    font-size: medium;
+    width: calc(100% / 2 - 4px);
+    cursor: pointer;
+    margin: 2px;
+}
+
+.Option.active {
+    background-color: rgb(133, 68, 246);
+    color: white;
+}
+
+.Option2 {
+    padding: 2%;
+    color: rgb(8, 8, 8);
+    background-color: white;
+    border: 2px solid rgb(158, 156, 156);
+    border-radius: 5px;
+    font-size: medium;
+    width: calc(100% / 5 - 4px);
+    margin: 2px;
+    cursor: pointer;
+}
+
+.Option2.active {
+    background-color: rgb(133, 68, 246);
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.reset-button {
+    padding: 10px;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
+    margin: 2px;
+    /* width: calc(100-5px/2); */
+}
+
+
+
+.choose {
+    padding: 10px;
+    color: white;
+    background-color: rgb(107, 32, 237);
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
+    margin: 2px;
+    /* width: calc(100-5px/2); */
+}
+
+.save {
+    padding: 10px;
+    color: white;
+    background-color: rgb(7, 160, 38);
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
+    margin: 2px;
+
+}
+
+.choose-save {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.change-scale input {
+    width: 100%;
+    cursor: pointer;
+}
+
+.scale-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-image {
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+img {
+
+    /* in this i learn that how to set image inside div as per there height and width wothout changing image ratio */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.main-container.disable .filters,
+.main-container.disable .save,
+.main-container.disable .reset-button {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+p,
+label {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+@media (max-width :600px) {
+    .main-container {
+        /* height: 100vh; */
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 1.5%;
+    }
+
+    .container2 {
+        flex-direction: row-reverse;
+    }
+}
+
+
+/* for cropping */
+
+.container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image,
+.container {
+    margin: auto;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.container {
+    border: 2px solid grey;
+    margin-top: 5px;
+    background-color: #000;
+    padding: 5px;
+}
+
+.cropped {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+/* Modal container */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black with opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+
+    max-width: 900px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative;
+
+}
+
+/* Close button */
+.closeBtn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Button styling (optional) */
+.changes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.changes button {
+
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    /* background-color: rgb(107, 32, 237); */
+    border: none;
+    border-radius: 5px;
+}
+
+.crop {
+    background-color: rgb(165, 120, 244);
+}
+
+.crop-save {
+    background-color: rgb(47, 211, 6);
+}
+
+#closeModalBtn {
+    background-color: rgb(253, 59, 59);
+}
+
+.edit-image {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+select {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(165, 120, 244);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+
+}
+
+select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+option {
+    padding: 10px;
+}

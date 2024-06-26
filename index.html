@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="cropper/cropper.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="cropper/cropper.js"></script>
+  </head>
+  <body>
+    <div class="main-container disable">
+      <p class="heading">Progress Image Editor</p>
+
+      <div class="container2">
+        <div class="filters">
+          <p>Filters</p>
+          <div class="filter-option">
+            <button type="button" class="Option active" id="Brightness">
+              Brightness
+            </button>
+            <button type="button" class="Option" id="Saturation">
+              Saturation
+            </button>
+            <button type="button" class="Option" id="Inversion">
+              Inversion
+            </button>
+            <button type="button" class="Option" id="GrayScale">
+              GrayScale
+            </button>
+          </div>
+          <div class="change-scale">
+            <div class="scale-name">
+              <label for="scale" class="set-name">Brightness</label>
+              <p class="scale-value">100%</p>
+            </div>
+            <input
+              class="input-scale"
+              id="scale"
+              type="range"
+              min="0"
+              max="200"
+            />
+          </div>
+
+          <p>Rotate/Flip Image</p>
+          <div class="rotate">
+            <button type="button" class="Option2" id="rotate-right">
+              <i class="fas fa-redo-alt"></i>
+            </button>
+            <button type="button" class="Option2" id="rotate-left">
+              <i class="fas fa-undo-alt"></i>
+            </button>
+            <button type="button" class="Option2" id="flip-horizontal">
+              <i class="fas fa-arrows-alt-h"></i>
+            </button>
+            <button type="button" class="Option2" id="flip-vertical">
+              <i class="fas fa-arrows-alt-v"></i>
+            </button>
+            <button type="button" class="Option2" id="openModalBtn">
+              <i class="fas fa-crop"></i>
+            </button>
+          </div>
+        </div>
+        <div class="show-image">
+          <img src="./placeholder-image-1.png" alt="sample" id="image" />
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="reset">
+          <button type="reset" class="reset-button">Reset Image</button>
+          <input
+            type="file"
+            id="file-input"
+            name="files"
+            placeholder="choose file"
+            accept="image/png, image/jpeg"
+            hidden
+          />
+        </div>
+        <div class="choose-save">
+          <button type="button" class="choose" id="chooseImage">
+            Choose Image
+          </button>
+          <button type="button" class="save">Save Image</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <label for="ratio">Crop Ratio</label>
+        <select name="aspectRatio" id="ratio">
+          <option value="ratio1">free</option>
+          <option value="ratio2">4:3</option>
+          <option value="ratio3">1:1</option>
+          <option value="ratio4">2:3</option>
+          <option value="ratio5">16:9</option>
+        </select>
+
+        <span class="closeBtn">&times;</span>
+        <div class="edit-image">
+          <div class="image">
+            <img src="" alt="Original" class="Original-image" />
+          </div>
+
+          <div class="container">
+            <img src="" alt="Cropped" class="cropped" />
+          </div>
+        </div>
+
+        <div class="changes">
+          <div class="left-buttons">
+            <button type="button" class="crop">Crop</button>
+            <button type="button" id="closeModalBtn">cancel</button>
+          </div>
+          <div class="right-buttons">
+            <button type="button" class="crop-save">save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
